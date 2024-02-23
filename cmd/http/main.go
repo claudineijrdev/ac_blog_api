@@ -10,5 +10,8 @@ func main() {
 	mongodb := db.NewDB("mongodb://root:root@localhost:27017")
 	mongoRepository := db.NewMongoRepository(mongodb)
 	router := api.Router(mongoRepository)
-	http.ListenAndServe(":3000", router)
+	err := http.ListenAndServe(":3000", router)
+	if err != nil {
+		panic(err)
+	}
 }

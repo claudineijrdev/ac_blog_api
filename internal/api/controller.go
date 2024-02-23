@@ -142,6 +142,8 @@ func (a *Controller) CreateComment(response http.ResponseWriter, request *http.R
 		return
 	}
 
+	comment.PostID = postId
+
 	validate := validator.New()
 	err = validate.Struct(comment)
 	if err != nil {
@@ -149,7 +151,7 @@ func (a *Controller) CreateComment(response http.ResponseWriter, request *http.R
 		return
 	}
 
-	err = a.blog.CreateComment(postId, comment)
+	err = a.blog.CreateComment(comment)
 	if err != nil {
 		EncodeError(&response, err.Error(), http.StatusInternalServerError)
 		return

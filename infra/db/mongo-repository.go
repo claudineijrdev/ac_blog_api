@@ -96,9 +96,9 @@ func (m *MongoRepository) DeletePost(id string) error {
 	return err
 }
 
-func (m *MongoRepository) CreateComment(postId string, comment entity.Comment) error {
+func (m *MongoRepository) CreateComment(comment entity.Comment) error {
 	collection := GetCollection("posts", "blog")
-	pID, err := primitive.ObjectIDFromHex(postId)
+	pID, err := primitive.ObjectIDFromHex(comment.PostID)
 	if err != nil {
 		return err
 	}

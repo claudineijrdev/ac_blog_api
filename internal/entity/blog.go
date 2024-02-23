@@ -6,7 +6,7 @@ type PostRepository interface {
 	GetPost(id string) (Post, error)
 	UpdatePost(id string, post Post) error
 	DeletePost(id string) error
-	CreateComment(postId string, comment Comment) error
+	CreateComment(comment Comment) error
 	GetCommentList(postId string) ([]Comment, error)
 	DeletePostComment(postId string, commentID string) error
 }
@@ -51,8 +51,8 @@ func (b *Blog) DeletePost(id string) error {
 	return b.PostRepository.DeletePost(id)
 }
 
-func (b *Blog) CreateComment(postId string, comment Comment) error {
-	return b.PostRepository.CreateComment(postId, comment)
+func (b *Blog) CreateComment(comment Comment) error {
+	return b.PostRepository.CreateComment(comment)
 }
 
 func (b *Blog) GetCommentList(postID string) ([]Comment, error) {

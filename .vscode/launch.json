@@ -5,15 +5,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Package",
+      "name": "Launch file",
       "type": "go",
       "request": "launch",
-      "mode": "auto",
-      "program": "${workspaceFolder}/main.go",
-      "args": [],
-      "env": {},
-      "cwd": "${workspaceFolder}",
-      "externalConsole": true
+      "mode": "debug",
+      "program": "main.go"
     }
   ]
 }
